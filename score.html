@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>คะแนนที่ได้</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+        h1 {
+            color: #4CAF50;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        .score {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>คำยินดี</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                padding: 20px;
+            }
+            h1, h2 {
+                text-align: center;
+            }
+            .question {
+                margin-bottom: 20px;
+            }
+            .option {
+                margin-left: 20px;
+            }
+            input[type="radio"] {
+                margin-right: 10px;
+            }
+            input[type="submit"] {
+                display: block;
+                margin: 0 auto;
+                padding: 10px 20px;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+            input[type="submit"]:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+    <body>   
+    </html>
+    <h1>ผลการประเมิน</h1>
+    <div>
+        <p>คะแนนรวม: <span id="score"></span></p>
+    </div>
+    </body>
+   
+   <script>
+        // ดึงคะแนนที่เก็บไว้ใน localStorage
+        let score = localStorage.getItem("score");
+        // แสดงคะแนนที่ได้ในส่วนของ HTML
+        document.getElementById("score").textContent = score;
+
+        // เช็คคะแนน ถ้าผ่าน ให้เด้งไปหน้าถัดไป
+        if (parseInt(score) >= 25) {
+            alert("ยินดีด้วย! คุณได้ลำดับที่1");
+        }else if (parseInt(score) >= 20) {
+            alert("ยินดีด้วย! คุณได้ลำดับที่2");  
+        } else {
+            alert("เสียใจด้วย คุณไม่ผ่านข้อสอบ");
+        }
+    </script>
+</body>
+</html>
