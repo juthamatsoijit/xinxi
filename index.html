@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>แบบประเมินการแข่งขัน</title>
+    <link rel="stylesheet" href="ss1.css">
+</head>
+<body>
+    <h1>แบบประเมินการแข่งขัน</h1> <hr>
+    <form id="quizForm">
+        <div class="question">
+            <h2>คำถาม 1: ท่านมีความสนใจชุดการแต่งกายแบบใด</h2>
+            <div class="option"></div>
+            <img src="horse.jpg" alt="HTML Image" width="200"><br>
+            <input type="radio" name="q1" value="a"> ม้า<br>
+            <img src="horse.jpg" alt="HTML Image" width="200"><br>
+            <input type="radio" name="q1" value="b"> แมว<br>
+            <img src="horse.jpg" alt="HTML Image" width="200"><br>
+            <input type="radio" name="q1" value="c"> หมี<br>
+            <img src="horse.jpg" alt="HTML Image" width="200"><br>
+            <input type="radio" name="q1" value="d"> High-level Textge<br>
+            <img src="horse.jpg" alt="HTML Image" width="200"><br>
+            <input type="radio" name="q1" value="e">  Language (6 คะแนน)<br>
+            </div>
+        </div>
+
+        
+
+        <div class="question">
+            <h2>คำถาม 2: รสลีลา </h2>
+            <div class="option">
+                <input type="radio" name="q2" value="a"> &lt;a&gt; (8 คะแนน)<br>
+                <input type="radio" name="q2" value="b"> &lt;link&gt; (6 คะแนน)<br>
+                <input type="radio" name="q2" value="c"> &lt;url&gt; (4 คะแนน)<br>
+                <input type="radio" name="q2" value="d"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q2" value="e"> High-level Text Markup Language (6 คะแนน)<br>
+            </div>
+        </div>
+
+        <div class="question">
+            <h2>คำถาม 3: รสชาติ</h2>
+            <div class="option">
+                <input type="radio" name="q3" value="a"> Hyperlink Text Markup Language (7 คะแนน)<br>
+                <input type="radio" name="q3" value="b"> Hypertext Markup Language (10 คะแนน)<br>
+                <input type="radio" name="q3" value="c"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q3" value="d"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q3" value="e"> High-level Text Markup Language (6 คะแนน)<br>
+            </div>  
+        </div>
+
+        <div class="question">
+            <h2>คำถาม 4: ความสะอาด</h2>
+            <div class="option">
+                <input type="radio" name="q4" value="a"> Hyperlink Text Markup Language (7 คะแนน)<br>
+                <input type="radio" name="q4" value="b"> Hypertext Markup Language (10 คะแนน)<br>
+                <input type="radio" name="q4" value="c"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q4" value="d"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q4" value="e"> High-level Text Markup Language (6 คะแนน)<br>
+            </div>  
+        </div>
+
+        <div class="question">
+            <h2>คำถาม 5: ความคิดสร้างสรรค์</h2>
+            <div class="option">
+                <input type="radio" name="q5" value="a"> Hyperlink Text Markup Language (7 คะแนน)<br>
+                <input type="radio" name="q5" value="b"> Hypertext Markup Language (10 คะแนน)<br>
+                <input type="radio" name="q5" value="c"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q5" value="d"> High-level Text Markup Language (6 คะแนน)<br>
+                <input type="radio" name="q5" value="e"> High-level Text Markup Language (6 คะแนน)<br>
+            </div>  
+        </div>
+<br>
+        <input type="submit" value="ส่งคำตอบ">
+    </form>
+
+    <script>
+        document.getElementById("quizForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // หยุดการส่งค่าฟอร์ม
+            let form = event.target;
+            let formData = new FormData(form);
+            let score = calculateScore(formData); // คำนวณคะแนน
+            localStorage.setItem("score", score); // บันทึกคะแนนไว้ใน localStorage
+            window.location.href = "score.html"; // ย้ายไปยังหน้า score.html
+        });
+
+        function calculateScore(formData) {
+            let score = 0;
+            // คำนวณคะแนนตามคำตอบที่เลือก
+            if (formData.get("q1") === "a") {
+                score += 10;
+            }else if (formData.get("q1") === 'b') {
+                    score += 3;  
+            }else if (formData.get("q1") === 'c') {
+                    score += 4;
+            }else if (formData.get("q1") === 'd') {
+                    score += 2;  
+            }else if (formData.get("q1") === 'e') {
+                    score += 1;      
+            }
+            
+            if (formData.get("q2") === "a") {
+                score += 8;
+            }else if (formData.get("q2") === 'b') {
+                score += 5;
+            }else if (formData.get("q2") === 'c') {
+                score += 2;
+            }else if (formData.get("q2") === 'd') {
+                    score += 2;  
+            }else if (formData.get("q2") === 'e') {
+                    score += 1;      
+            }
+
+            if (formData.get("q3") === "a") {
+                score += 8;
+            }else if (formData.get("q3") === 'b') {
+                score += 5;
+            }else if (formData.get("q3") === 'c') {
+                score += 2;
+            }else if (formData.get("q3") === 'd') {
+                    score += 2;  
+            }else if (formData.get("q3") === 'e') {
+                    score += 1;    
+            }
+
+            if (formData.get("q4") === "a") {
+                score += 8;
+            }else if (formData.get("q4") === 'b') {
+                score += 5;
+            }else if (formData.get("q4") === 'c') {
+                score += 2;
+            }else if (formData.get("q4") === 'd') {
+                    score += 2;  
+            }else if (formData.get("q4") === 'e') {
+                    score += 1;    
+            }
+
+            if (formData.get("q5") === "a") {
+                score += 10;
+            }else if (formData.get("q5") === 'b') {
+                    score += 5;
+            }else if (formData.get("q5") === 'c') {
+                score += 8;
+            }else if (formData.get("q5") === 'd') {
+                    score += 2;  
+            }else if (formData.get("q5") === 'e') {
+                    score += 1;      
+            }
+            return score;
+        }
+    </script>
+</body>
+</html>
